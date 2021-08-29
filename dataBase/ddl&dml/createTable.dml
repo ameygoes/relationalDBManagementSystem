@@ -1,47 +1,51 @@
-// RELATIONAL DATABASE MANAGEMENT SYSTEM (RDMS)
-CREATE DATABASE RDMS;
+-- RELATIONAL DATABASE MANAGEMENT SYSTEM (RDMS)
+CREATE DATABASE IF NOT EXISTS  RDMS;
 
-// CREATE TABLE
-CREATE TABLE studentDetails (
-rollNnumber	int	not null unique,
+-- USE DATABASE
+USE RDMS;
+
+-- CREATE TABLE
+CREATE TABLE IF NOT EXISTS studentDetails (
+rollNumber	int	not null unique,
 registrationId	varchar(11) not null unique,
-name varchar(20),
+firstname varchar(20),
 surname varchar(20),
-fatherName varchar(20),
-motherName varchar(20),
-Email varchar(50) not null unique,
-isAadhar boolean,	
-Aadhar int(12) unique,
-isPAN boolean,	
+fathersName varchar(20),
+mothersName varchar(20),
+email nvarchar(320) not null unique,
+isAadhar boolean,
+aadhar int unique,
+isPAN boolean,
 PAN	varchar(10) unique,
-isPassport boolean	
+isPassport boolean,
 passport varchar(8) unique,
-isIndian boolean,	
+isIndian boolean,
 nationality varchar(20),
 mobileNumber int not null unique,
 permanantAddress varchar(100),
-ResidentialAddress varchar(100),
-TenthStdResult float,
-twelthStdResult float,
-FirstSemCGPA float,
-SecondSemCGPA float,
-ThirdSemCGPA float,
-FourthSemCGPA float,
-FifthSemCGPA float,
-SixthSemCGPA float,
-SeventhSemCGPA float,
-EightthSemGCPA float,
-isDiploma boolean,	
+residentialAddress varchar(100),
+tenthCGPA float,
+twelthCGPA float,
+tenthGrade float,
+twelthGrade float,
+firstSemCGPA float,
+secondSemCGPA float,
+thirdSemCGPA float,
+fourthSemCGPA float,
+fifthSemCGPA float,
+sixthSemCGPA float,
+seventhSemCGPA float,
+eightthSemGCPA float,
+isDiploma boolean,
 diplomaMarks float,
-isBacklog boolean,	
+isBacklog boolean,
 numberOfBacklogs int,
 activeBacklog int,
 PassiveBacklog int,
-isYD boolean,	
+isYD boolean,
 YDYears int,
-isEducationGap boolean	
-EducationGapYears int,
-isPICTStudent boolean,	
-currentBatch int,
+isEducationGap boolean,
+educationGapYears int,
+isPICTStudent boolean,
+currentBatch int
 );
-

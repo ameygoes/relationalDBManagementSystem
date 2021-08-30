@@ -2,6 +2,7 @@
 # Importing Builtin Libraries
 import sys
 sys.path.append("../../propertyFiles")
+sys.path.append("../../SecretFiles")
 from cryptography.fernet import Fernet
 
 # Importing User defined Modules
@@ -25,14 +26,12 @@ def load_key():
 
 # ENCRYPT PII COLOUMN VALUE
 def encrypt(coloumnValue, key):
-    """
-    Given a filename (str) and key (bytes), it encrypts the file and write it
-    """
+    EncodedData = coloumnValue.encode()
     f = Fernet(key)
     # encrypt data
-    encrypted_data = f.encrypt(coloumnValue)
+    encrypted_data = f.encrypt(EncodedData)
 
-    return encrypted_data
+    return encrypted_data.decode()
 
 # DECRYPT PII COULOMN VALUE
 def decrypt(encryptedData, key):

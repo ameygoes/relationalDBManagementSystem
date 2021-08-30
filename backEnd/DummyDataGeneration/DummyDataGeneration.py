@@ -1,14 +1,19 @@
 # Importing Builtin Libraries
 import sys
-sys.path.append("../propertyFiles")
-sys.path.append("../SQLConnectors")
 import string
 import random
+import pandas as pd
+
+# APPENDING PATH FOR IMPORTING Libraries
+sys.path.append("C:/Users/lenovo/data structure in python/BE project/rdms/relationalDBManagementSystem/backEnd/propertyFiles")
+sys.path.append("C:/Users/lenovo/data structure in python/BE project/rdms/relationalDBManagementSystem/backEnd/SQLConnectors")
+sys.path.append("C:/Users/lenovo/data structure in python/BE project/rdms/relationalDBManagementSystem/backEnd/Processors/Encrypters")
 
 # Importing User defined Modules
 from sqlConnector import *
 from EnvironmentVariables import *
 from dummyDataPayload import *
+from Encryption import *
 
 # COMMAND TO GET LOWERBOUND
 getLowerBoundCmd = getLowerBound.format(tableName)
@@ -17,7 +22,11 @@ getLowerBoundCmd = getLowerBound.format(tableName)
 maxValueInDB = executeGetCommand(getLowerBoundCmd)
 
 # RETURNS A TUPLE - GET FIRST ELEMENT
-lowerBound = maxValueInDB[0] + 1
+if maxValueInDB[0][0] == None:
+    lowerBound = 0
+else:
+    lowerBound = maxValueInDB[0][0] + 1
+
 upperBound = lowerBound + numberofDummyDataToBeInserted
 
 # number of characters in the PrefixEmail string.
@@ -28,26 +37,77 @@ commandString = ""
 templateString = "{}"
 comma = ","
 
-# RUN FOR LOOP TO GENERATE DUMMY DATA
+piiColumns = [firstname,surname,email,aadhar,PAN,passport,mobileNumber,permanantAddress,residentialAddress]
+
+# RUN FOR LOOP TO GENERATE DUMMY DATA -- ROW WISE
+# DYNAMIC NUMBER IS BASICALLY ROW_NUMBER
 for dynamicNumber in range (lowerBound, upperBound):
 
     # CREATE RANDOM ALPHANUMERIC EMAIL FOR INSERTION
     alphaNumericEmail = ''.join(random.choices(string.ascii_uppercase + string.digits, k = maxLengthOfPrefixEmail))
+    RandomGrade_10 = round(random.uniform(55.0, 99.9),1)
+    RandomGrade_12 = round(random.uniform(55.0, 99.9),1)
+    # INITIALISE EMPTY ENCRYPTED ARRAY TO STORE ENCRYPTED VALUES OF 9 COLOUMNS
+    encrypted = []
 
-    templateString = """({},"{}","{}","{}","{}","{}","{}",{},{},{},"{}",{},"{}",{},"{}",{},"{}","{}",{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{})"""
-    commandString = commandString + templateString.format(int(rollNumber.format(dynamicNumber)),registrationId.format(dynamicNumber),firstname.format(dynamicNumber),surname.format(dynamicNumber),
-                                                          fathersName.format(dynamicNumber),mothersName.format(dynamicNumber),email.format(alphaNumericEmail),isAadhar,aadhar.format(dynamicNumber),
-                                                          isPAN,PAN.format(dynamicNumber),isPassport,passport.format(dynamicNumber),isIndian,nationality,int(mobileNumber.format(dynamicNumber)),
-                                                          permanantAddress.format(dynamicNumber),residentialAddress.format(dynamicNumber),tenthCGPA,twelthCGPA,tenthGrade,twelthGrade,firstSemCGPA,secondSemCGPA,
+    # GO THOUGH LOOP OF COLOUMNS AND ENCRYPT VALUES
+    for colName in piiColumns:
+        # CHECK IF COLOUMN IS EMAIL VARIABLE IF IT IS REPLACE IT WITH ALPHANUMERCAL EMAIL
+        if(colName == email):
+            Colvalue = colName.format(alphaNumericEmail)
+        # IF COLOUMN IS NOT EMAIL REPLACE IT WITH DYNAMICNUMBER
+        else:
+            Colvalue = colName.format(dynamicNumber)
+
+        # GET ENCRYPTED VALUE OF COLOUMN FROM PIIDATA
+        encryptedValue = wrapperEncryptFunction(Colvalue)
+
+        # APPEND IT TO ENCRYPTED ARRAY
+        encrypted.append(encryptedValue)
+
+    # INITIALISE 42 COLOUMNS LENTH STRING TO FILL UP VALUES
+    templateString = """({},"{}","{}","{}","{}","{}","{}",{},"{}",{},"{}",{},"{}",{},"{}","{}","{}","{}",{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{})"""
+    commandString = commandString + templateString.format(int(rollNumber.format(dynamicNumber)),registrationId.format(dynamicNumber),encrypted[0],encrypted[1],
+                                                          fathersName.format(dynamicNumber),mothersName.format(dynamicNumber),encrypted[2],isAadhar,encrypted[3],
+                                                          isPAN,encrypted[4],isPassport,encrypted[5],isIndian,nationality,encrypted[6],
+                                                          encrypted[7],encrypted[8],tenthCGPA,twelthCGPA,tenthGrade.format(RandomGrade_10),twelthGrade.format(RandomGrade_12),firstSemCGPA,secondSemCGPA,
                                                           thirdSemCGPA,fourthSemCGPA,fifthSemCGPA,sixthSemCGPA,seventhSemCGPA,eightthSemGCPA,isDiploma,diplomaMarks,isBacklog,numberOfBacklogs,activeBacklog,
                                                           PassiveBacklog,isYD,YDYears,isEducationGap,educationGapYears,isPICTStudent,currentBatch)
+
     # ADD COMMA AFTER EVERY ROW BUT LAST ONE
     if(dynamicNumber<upperBound-1):
         commandString = commandString + ","
 
 
+# print(insertData.format(tableName,coloumnNames,commandString))
+
 # Execute Command to Insert Values
-result = executeInsertCommand(insertData.format(tableName,coloumnNames,commandString))
+# result = executeInsertCommand(insertData.format(tableName,coloumnNames,commandString))
 
 # Sample of Rows inserted
 print("Total rows inserted {}".format(numberofDummyDataToBeInserted))
+
+# decryption function
+from pandas import DataFrame
+selectQuery = "SELECT {} FROM {}".format(piiColoumnNames,tableName)
+resoverall = executeGetCommand(selectQuery)
+piiColoumnNamesdf = ["firstname","surname","email","aadhar","PAN","passport","mobileNumber","permanantAddress","residentialAddress"]
+df = pd.DataFrame(resoverall,columns = piiColoumnNamesdf)
+print(df)
+# df.columns = resoverall.keys()
+dataFrameDecrypted = DataFrame()
+
+
+for index, row in df.iterrows():
+    decrypted = []
+
+    # GO THOUGH LOOP OF COLOUMNS AND ENCRYPT VALUES
+    for colName in piiColoumnNamesdf:
+        decryptedValue = wrapperDecyptFunction(row[colName])
+        decrypted.append(decryptedValue)
+
+    zipped = zip(piiColoumnNamesdf,decrypted)
+    a_dictionary = dict(zipped)
+    dataFrameDecrypted = dataFrameDecrypted.append(a_dictionary,True)
+
+print(dataFrameDecrypted)

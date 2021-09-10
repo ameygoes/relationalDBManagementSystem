@@ -15,6 +15,7 @@ from EnvironmentVariables import *
 from dummyDataPayload import *
 from Encryption import *
 
+
 # COMMAND TO GET LOWERBOUND
 getLowerBoundCmd = getLowerBound.format(tableName)
 
@@ -48,22 +49,7 @@ for dynamicNumber in range (lowerBound, upperBound):
     RandomGrade_10 = round(random.uniform(55.0, 99.9),1)
     RandomGrade_12 = round(random.uniform(55.0, 99.9),1)
     # INITIALISE EMPTY ENCRYPTED ARRAY TO STORE ENCRYPTED VALUES OF 9 COLOUMNS
-    encrypted = []
-
-    # GO THOUGH LOOP OF COLOUMNS AND ENCRYPT VALUES
-    for colName in piiColumns:
-        # CHECK IF COLOUMN IS EMAIL VARIABLE IF IT IS REPLACE IT WITH ALPHANUMERCAL EMAIL
-        if(colName == email):
-            Colvalue = colName.format(alphaNumericEmail)
-        # IF COLOUMN IS NOT EMAIL REPLACE IT WITH DYNAMICNUMBER
-        else:
-            Colvalue = colName.format(dynamicNumber)
-
-        # GET ENCRYPTED VALUE OF COLOUMN FROM PIIDATA
-        encryptedValue = wrapperEncryptFunction(Colvalue)
-
-        # APPEND IT TO ENCRYPTED ARRAY
-        encrypted.append(encryptedValue)
+    ans = fillEnctryptedValues(alphaNumericEmail,dynamicNumber)
 
     # INITIALISE 42 COLOUMNS LENTH STRING TO FILL UP VALUES
     templateString = """({},"{}","{}","{}","{}","{}","{}",{},"{}",{},"{}",{},"{}",{},"{}","{}","{}","{}",{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{})"""
@@ -110,4 +96,6 @@ for index, row in df.iterrows():
     a_dictionary = dict(zipped)
     dataFrameDecrypted = dataFrameDecrypted.append(a_dictionary,True)
 
+#DataFrame to CSV AND REMOVED FIRST COLUMN (SR. NO.)
+dataFrameDecrypted.to_csv('decrypted.csv',index=False)
 print(dataFrameDecrypted)

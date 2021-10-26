@@ -28,8 +28,8 @@ getLowerBound = "SELECT MAX(rollNumber) FROM {}"
 insertData = "INSERT INTO {} ({}) VALUES {}"
 
 # INSERT DUMMY Data
-numberofDummyDataToBeInserted = 3
-# hardCodedpath = "C:\\Users\\lenovo\\data structure in python\\BE project\\rdms\\relationalDBManagementSystem\\backEnd"
+numberofDummyDataToBeInserted = 1003
+hardCodedpath = "C:\\Users\\lenovo\\data structure in python\\BE project\\rdms\\relationalDBManagementSystem\\backEnd"
 
 # PII COLUMN NAMES
 # piiColumns = ["firstname","surname","email","aadhar","PAN","passport","mobileNumber","permanantAddress","residentialAddress"]
@@ -37,5 +37,14 @@ numberofDummyDataToBeInserted = 3
 # ==============================================================
 # =========== ENCRYPTION AND DECRYTION PROPERTIES ==============
 # ==============================================================
-pathToDecryptionKey = "../SecretFiles/decryptionKey.key"
-# decreptionKey = "tN9oA_eCulJhWOF_gKEs3FdFUHzIfuj0JmDgjS-DWxo="
+
+decreptionKey = "tN9oA_eCulJhWOF_gKEs3FdFUHzIfuj0JmDgjS-DWxo="
+
+
+
+#================================================================
+#===================Send email===================================
+#================================================================
+from_email='no.reply.tnpproject@gmail.com'
+to_emails=['aadityab134@gmail.com']#'danimanas28@gmail.com']
+emailNotificationAPIKey = "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"

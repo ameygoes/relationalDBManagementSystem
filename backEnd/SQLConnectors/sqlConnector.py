@@ -3,9 +3,9 @@ import sys
 import mysql.connector
 
 # Add path to Functions
-sys.path.append("hardCodedpath/backEnd/propertyFiles")
-sys.path.append("hardCodedpath/backEnd/Processors/Encrypters")
-
+sys.path.append("../propertyFiles")
+sys.path.append("../Processors/Encrypters")
+# sys.path.append("hardCodedpath/backEnd/propertyFiles/EnvironmentVariables.py")
 # Import Userdefined Functions
 from EnvironmentVariables import *
 from Encryption import *

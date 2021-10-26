@@ -2,13 +2,17 @@ import sys
 import pandas as pd
 import string
 
-sys.path.append("C:/Users/lenovo/data structure in python/BE project/rdms/relationalDBManagementSystem/backEnd/propertyFiles")
-sys.path.append("C:/Users/lenovo/data structure in python/BE project/rdms/relationalDBManagementSystem/backEnd/SQLConnectors")
-sys.path.append("C:/Users/lenovo/data structure in python/BE project/rdms/relationalDBManagementSystem/backEnd/DummyDataGeneration")
+sys.path.append("../../propertyFiles")
+sys.path.append("../../SQLConnectors")
+sys.path.append("../../DummyDataGenerate")
 
 from Encryption import *
-from DummyDataGeneration import *
+from dummyDataPayload import *
 
+
+# reqCols = [firstname,surname,email,mobileNumber,
+# actualReqCols = [rollNumber,registrationId]
+piiColumns = [firstname,surname,email,aadhar,PAN,passport,mobileNumber,permanantAddress,residentialAddress]
 
 
 def fillEnctryptedValues(alphaNumericEmail,dynamicNumber):
@@ -29,3 +33,4 @@ def fillEnctryptedValues(alphaNumericEmail,dynamicNumber):
 
         # APPEND IT TO ENCRYPTED ARRAY
         encrypted.append(encryptedValue)
+    return encrypted

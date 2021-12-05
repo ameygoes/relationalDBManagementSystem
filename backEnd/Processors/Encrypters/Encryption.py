@@ -34,7 +34,7 @@ def encrypt(coloumnValue, key):
     return encrypted_data.decode()
 
 # DECRYPT PII COULOMN VALUE
-def decrypt(encryptedData, key):
+def decrypt(encryptedData,key):
     fernetObject = Fernet(key)
 
     # decrypt data

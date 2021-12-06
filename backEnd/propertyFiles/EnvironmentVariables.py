@@ -22,6 +22,8 @@ diplomaMarks,isBacklog,numberOfBacklogs,activeBacklog,PassiveBacklog,isYD,YDYear
 piiColoumnNames = "firstname,surname,email,aadhar,PAN,passport,mobileNumber,permanantAddress,residentialAddress"
 piicolumnName = ['firstname','surname','email','aadhar','PAN','passport','mobileNumber','permanantAddress','residentialAddress']
 reqCols = ['rollNumber','registrationId','firstname','surname','email','mobileNumber']
+MandatoryDataToBeSent = ["registrationId","rollNumber","firstname","surname"]
+
 # COMMANDS TOBE EXECUTED
 # Command to get Lower Bound
 getLowerBound = "SELECT MAX(rollNumber) FROM {}"
@@ -61,3 +63,16 @@ decreptionKey = "tN9oA_eCulJhWOF_gKEs3FdFUHzIfuj0JmDgjS-DWxo="
 from_email='no.reply.tnpproject@gmail.com'
 to_emails=['aadityab134@gmail.com','danimanas28@gmail.com','bamey2241997@gmail.com']
 emailNotificationAPIKey = "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"
+
+
+
+#================================================================
+#===================File Rename==================================
+#================================================================
+RENAMED = "InterestedStudents.csv"
+
+
+
+
+
+InputFolderPath = "C:/Users/lenovo/data structure in python/BE project/relationalDBManagementSystem/relationalDataBaseManagement/input"

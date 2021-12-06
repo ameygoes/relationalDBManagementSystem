@@ -8,23 +8,6 @@
 <form class="" action="" method="post" enctype="multipart/form-data">
   {% csrf_token %}
 <input type="file" name="studentIds" value="studentIds">
-
-  <div class="form-check">
-    <input type="checkbox" name="inputFields" value="rollNumber" id="rollNumber">
-    <label for="rollNumber">Roll Number</label>
-  </div>
-  <div class="form-check">
-    <input type="checkbox" name="inputFields" value="registrationId" id="registrationId">
-    <label for="registrationId">Registration Id</label>
-  </div>
-  <div class="form-check">
-    <input type="checkbox" name="inputFields" value="firstname" id="firstname">
-    <label for="firstname">First Name</label>
-  </div>
-  <div class="form-check">
-    <input type="checkbox" name="inputFields" value="surname" id="surname">
-    <label for="surname">Surname</label>
-  </div>
   <div class="form-check">
     <input type="checkbox" name="inputFields" value="fathersName" id="fathersName">
     <label for="fathersName">Fathers Name</label>
@@ -62,10 +45,6 @@
     <label for="permanantAddress">Permanant Address</label>
   </div>
   <div class="form-check">
-    <input type="checkbox" name="inputFields" value="residentialAddress" id="residentialAddress">
-    <label for="residentialAddress">Residential Address</label>
-  </div>
-  <div class="form-check">
     <input type="checkbox" name="inputFields" value="tenthCGPA" id="tenthCGPA">
     <label for="tenthCGPA">Marks</label>
   </div>
@@ -89,8 +68,8 @@
     <input type="checkbox" name="inputFields" value="currentBatch" id="currentBatch">
     <label for="currentBatch">Current Batch</label>
   </div>
-<input type="text" name="email" value="email">
-
+<input type="text" name="email" value="Enter Email for details">
+<br>
 <button type="submit" name="submit">Get Student Details</button>
 </form>
   </body>

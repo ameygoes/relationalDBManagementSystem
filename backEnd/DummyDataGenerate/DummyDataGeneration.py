@@ -36,15 +36,19 @@ def fillEnctryptedValues(reqPiilist):
     return encrypted
 
 def getStudentDetailsCSV(reqColss):
-    reqColStr = ','.join(reqColss)
-    print(reqColStr)
-    executeSQ = selectQuery.format(reqColStr,tableName,readInputCSV())
-    print(executeSQ)
+
+    coloumnToBeFetched=getAllColoumnstoFetch(reqColss)
+    reqColStr = getListOfStrings(coloumnToBeFetched)
+    interestedStudents = setInterestedStudentsFromCSV()
+
+    executeSQ = selectQuery.format(reqColStr,tableName,interestedStudents)
     resoverall = executeGetCommand(executeSQ)
-    EncryptedDataFrame = DataFrame(resoverall,columns = reqColss)
+
+    EncryptedDataFrame = DataFrame(resoverall,columns = coloumnToBeFetched)
+
     decryptedDataFrame = EncryptedDataFrame
     for rowIndex, row in EncryptedDataFrame.iterrows():
-        for colIndex,col in enumerate(reqColss):
+        for colIndex,col in enumerate(coloumnToBeFetched):
 
             if col in piicolumnName:
             # print('this rowIndex{} colIndex{} elemetn {}'.format(rowIndex,colIndex,col))

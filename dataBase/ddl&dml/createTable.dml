@@ -6,28 +6,28 @@ USE RDMS;
 
 -- CREATE TABLE
 CREATE TABLE IF NOT EXISTS studentDetails (
-rollNumber	int	not null unique,
 registrationId	varchar(11) not null unique,
-firstname varchar(20),
-surname varchar(20),
-fathersName varchar(20),
-mothersName varchar(20),
+rollNumber	int	not null unique,
+firstName varchar(100),
+surName varchar(100),
 email nvarchar(320) not null unique,
-isAadhar boolean,
-aadhar int unique,
-isPAN boolean,
-PAN	varchar(10) unique,
-isPassport boolean,
-passport varchar(8) unique,
-isIndian boolean,
+mobileNumber varchar(100) not null unique,
+aadhar varchar(100) not null unique,
+PAN	varchar(100) unique,
+passport varchar(100) unique,
 nationality varchar(20),
-mobileNumber int not null unique,
-permanantAddress varchar(100),
-residentialAddress varchar(100),
+isAadhar boolean,
+isPAN boolean,
+isPassport boolean,
+isIndian boolean,
+fathersName varchar(300),
+mothersName varchar(300),
+permanantAddress varchar(500),
+residentialAddress varchar(500),
 tenthCGPA float,
-twelthCGPA float,
+twelfthCGPA float,
 tenthGrade float,
-twelthGrade float,
+twelfthGrade float,
 firstSemCGPA float,
 secondSemCGPA float,
 thirdSemCGPA float,
@@ -49,3 +49,9 @@ educationGapYears int,
 isPICTStudent boolean,
 currentBatch int
 );
+
+-- drop table studentDetails;
+
+-- GET ALL COLOUMN NAMES
+-- SELECT column_name FROM INFORMATION_SCHEMA.COLUMNS
+-- WHERE TABLE_NAME = 'StudentDetails';

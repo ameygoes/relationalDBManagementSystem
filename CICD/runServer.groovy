@@ -7,7 +7,6 @@ pipeline{
     stage('clean'){
       steps{
         sh "cd /var/lib/jenkins/workspace/"
-        sh "sudo rm -rfv /var/lib/jenkins/workspace/"
         checkout scm
       }
     }

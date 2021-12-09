@@ -15,8 +15,9 @@ BASE_DIR = getBaseDir()
 # CONNECTION PROPERTIES
 DB_USER_NAME = "rdmsUser"
 # password = "gAAAAABhK7M5eUiWIJw4mPdQUWeTo1AshWyTRI6gJ-THPlTuPYYhHMnY1Llrb0gKZ9ZN0bpAkNvXeWezPLnYR2B1fBUu5FwKZg==" --rootPaass
-# PASSWORD = "gAAAAABhK576ntIFAmqgnXs6u06dtzHoJbPGzXNXTjRIRve-Z9aBF3Ztvtsz3fH6d2_QMtve15emipkg0Q_GcOAnYRMJiNxaUg=="
-PASSWORD = "gAAAAABhslbL_Fm-ltNokFKpU-aAzLlLf_p2CgnQGcuxvmfVuyB0jdyDnEjTx0e234TPvp089GUGMFRLekXeOkBbesT4fLOx4Q=="
+# PASSWORD = "gAAAAABhK576ntIFAmqgnXs6u06dtzHoJbPGzXNXTjRIRve-Z9aBF3Ztvtsz3fH6d2_QMtve15emipkg0Q_GcOAnYRMJiNxaUg==" --local rdbms
+# PASSWORD = "gAAAAABhslbL_Fm-ltNokFKpU-aAzLlLf_p2CgnQGcuxvmfVuyB0jdyDnEjTx0e234TPvp089GUGMFRLekXeOkBbesT4fLOx4Q==" --ec2-root
+PASSWORD = "gAAAAABhsmFX_dMbextIwiSBgAFiLYbETzMswiYB0UrUZsGUEel0hFiTHEWqlkdnxcGkNtrqCly3c4c3qPrkrsq42uukiEqlWw=="
 HOST_NAME = "localhost"
 PORT_NAME = "3306"
 DB_NAME = "rdms"

@@ -6,7 +6,8 @@ pipeline{
 
     stage('clean'){
       steps{
-        deleteDir()
+        sh "cd /var/lib/jenkins/workspace/"
+        sh "sudo rm -rfv /var/lib/jenkins/workspace/"
         checkout scm
       }
     }
@@ -20,5 +21,10 @@ pipeline{
       }
     }
   }
+  post {
+       always {
+           cleanWs()
+       }
+   }
 
 }

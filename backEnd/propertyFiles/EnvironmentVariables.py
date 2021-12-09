@@ -72,10 +72,10 @@ emailNotificationAPIKey = "SG.ZoDztxzMQP-iBSyCA-2H6Q.Vq0bV47xBEhJjHZG1lCjuzNb3no
 #============== FILE OPERATIONS RELATED PRPERTIES ===============
 #================================================================
 FILE_NAME_OF_FILE_TOBE_PARSED = "InterestedStudents.csv"
-INPUT_DIR_PATH = "\\rdbms\\input\\"
+INPUT_DIR_PATH = "/rdbms/input/"
 INPUT_FOLDER_PATH = BASE_DIR + INPUT_DIR_PATH
 INTERESTED_STUDENTS_FILE_PATH = INPUT_FOLDER_PATH + FILE_NAME_OF_FILE_TOBE_PARSED
 
-PROJECT_PATH_FOR_CSV_FILE = "\\backEnd\\outputs\\"
+PROJECT_PATH_FOR_CSV_FILE = "/backEnd/outputs/"
 OUTPUT_CSV_FILE_NAME="StudentDetails.csv"
 PATH_TO_CSV_FILE = BASE_DIR + PROJECT_PATH_FOR_CSV_FILE + OUTPUT_CSV_FILE_NAME

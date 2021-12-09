@@ -6,8 +6,8 @@ USE RDMS;
 
 -- CREATE TABLE
 CREATE TABLE IF NOT EXISTS studentDetails (
-registrationId	varchar(11) not null unique,
-rollNumber	int	not null unique,
+registrationId varchar(11) not null unique,
+rollNumber int	not null unique,
 firstName varchar(100),
 surName varchar(100),
 email nvarchar(320) not null unique,

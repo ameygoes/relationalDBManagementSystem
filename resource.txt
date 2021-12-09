@@ -1,3 +1,9 @@
 Start Django Server - django-admin startproject mysite
 Run Server - cd to relationalDBManagement
               python manage.py runserver
+
+Before Running any script,
+  1. Copy addProjectPath.pth file to C:\Users\<YOUR_USERNAME>\AppData\Local\Programs\Python\Python39\Lib\site-packages
+
+Before Pushing your Code:
+ 1. Run find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf

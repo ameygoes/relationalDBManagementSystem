@@ -2,7 +2,7 @@
 id = ['C2K{}','I2K{}','E2K{}']
 # print(id[0]
 rollNumber = "{}"
-registrationId = "{}"
+registrationId = "118{}"
 firstname = "{}"
 surname = "{}"
 fathersName = "{}"

@@ -18,7 +18,7 @@ pipeline{
       steps{
         cd "${env.WORKSPACE}"
         println("Inside WORKSPACE: ${env.WORKSPACE}")
-        cd relationalDBManagementSystem/CICD/
+        cd CICD
         sudo chmod 777 runserver.sh
         sh runserver.sh
       }

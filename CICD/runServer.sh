@@ -10,4 +10,4 @@ ls -lrt /usr/lib/python3.7/site-packages/
 echo "Starting Server..."
 cd $DESTINATION/rdbms/
 pwd
-python manage.py runserver
+python3 manage.py runserver

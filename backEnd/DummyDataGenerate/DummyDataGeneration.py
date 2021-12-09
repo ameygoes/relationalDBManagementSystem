@@ -159,7 +159,7 @@ def insertDummyData():
         print("Total rows inserted {}".format(NUMBER_OF_DUMMY_DATA_TOBE_INSERTED))
 
 if __name__ == '__main__':
-    pass
-    # insertDummyData()
+    # pass
+    insertDummyData()
     # getStudentDetailsCSV(["fifthSemCGPA"])
     # sendMailUsingSMTP()

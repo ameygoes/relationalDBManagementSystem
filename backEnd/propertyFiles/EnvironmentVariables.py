@@ -15,7 +15,8 @@ BASE_DIR = getBaseDir()
 # CONNECTION PROPERTIES
 DB_USER_NAME = "rdmsUser"
 # password = "gAAAAABhK7M5eUiWIJw4mPdQUWeTo1AshWyTRI6gJ-THPlTuPYYhHMnY1Llrb0gKZ9ZN0bpAkNvXeWezPLnYR2B1fBUu5FwKZg==" --rootPaass
-PASSWORD = "gAAAAABhK576ntIFAmqgnXs6u06dtzHoJbPGzXNXTjRIRve-Z9aBF3Ztvtsz3fH6d2_QMtve15emipkg0Q_GcOAnYRMJiNxaUg=="
+# PASSWORD = "gAAAAABhK576ntIFAmqgnXs6u06dtzHoJbPGzXNXTjRIRve-Z9aBF3Ztvtsz3fH6d2_QMtve15emipkg0Q_GcOAnYRMJiNxaUg=="
+PASSWORD = "gAAAAABhslbL_Fm-ltNokFKpU-aAzLlLf_p2CgnQGcuxvmfVuyB0jdyDnEjTx0e234TPvp089GUGMFRLekXeOkBbesT4fLOx4Q=="
 HOST_NAME = "localhost"
 PORT_NAME = "3306"
 DB_NAME = "rdms"
@@ -45,7 +46,7 @@ SELECT_QUERY = "SELECT {} FROM {} WHERE registrationId in ({})"
 # ==============================================================
 # =========== DUMMY DATA PROPERTIES ==============
 # ==============================================================
-NUMBER_OF_DUMMY_DATA_TOBE_INSERTED = 100
+NUMBER_OF_DUMMY_DATA_TOBE_INSERTED = 900
 EMAIL_PREFIX_LENGTH = 9
 MOBILE_LENGTH = 10
 AADHAR_LENGTH = 14

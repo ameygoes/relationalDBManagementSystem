@@ -47,7 +47,7 @@ SELECT_QUERY = "SELECT {} FROM {} WHERE registrationId in ({})"
 # ==============================================================
 # =========== DUMMY DATA PROPERTIES ==============
 # ==============================================================
-NUMBER_OF_DUMMY_DATA_TOBE_INSERTED = 100
+NUMBER_OF_DUMMY_DATA_TOBE_INSERTED = 10
 EMAIL_PREFIX_LENGTH = 9
 MOBILE_LENGTH = 10
 AADHAR_LENGTH = 14

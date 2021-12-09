@@ -5,16 +5,18 @@ pipeline{
       label "master"
     }
   }
-  
+
   stages{
 
     stage('clean'){
-      deleteDir()
+      steps{
+        deleteDir()
+      }
     }
 
     stage('Run Server'){
       steps{
-        cd ${env.WORKSPACE}
+        cd "${env.WORKSPACE}"
         println("Inside WORKSPACE: ${env.WORKSPACE}")
         cd relationalDBManagementSystem/CICD/
         sudo chmod 777 runserver.sh

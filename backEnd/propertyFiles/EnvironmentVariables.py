@@ -20,8 +20,8 @@ DB_USER_NAME = "rdmsUser"
 PASSWORD = "gAAAAABhsmFX_dMbextIwiSBgAFiLYbETzMswiYB0UrUZsGUEel0hFiTHEWqlkdnxcGkNtrqCly3c4c3qPrkrsq42uukiEqlWw=="
 HOST_NAME = "localhost"
 PORT_NAME = "3306"
-DB_NAME = "rdms"
-TABLE_NAME = "studentdetails"
+DB_NAME = "RDMS"
+TABLE_NAME = "studentDetails"
 
 # TABLE PROPERTIES
 COLOUMN_NAMES = "registrationId,rollNumber,firstName,surName,email,mobileNumber,aadhar,PAN,passport,nationality,isAadhar,isPAN,isPassport,\

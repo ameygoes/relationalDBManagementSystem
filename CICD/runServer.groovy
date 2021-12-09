@@ -15,7 +15,7 @@ pipeline{
       steps{
         sh "cd ${env.WORKSPACE}/CICD;pwd"
         println("Inside WORKSPACE: ${env.WORKSPACE}/CICD")
-        sh "ll;sudo chmod 777 runServer.sh"
+        sh "ls -lrt;sudo chmod 777 runServer.sh"
         sh "sh runServer.sh ${env.WORKSPACE}/CICD"
       }
     }

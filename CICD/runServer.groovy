@@ -13,11 +13,10 @@ pipeline{
 
     stage('Run Server'){
       steps{
-        sh "cd \"${env.WORKSPACE}\""
+        sh "cd \"${env.WORKSPACE}\"CICD"
         println("Inside WORKSPACE: ${env.WORKSPACE}")
-        sh "cd CICD"
-        sh "sudo chmod 777 runserver.sh"
-        sh "sh runserver.sh"
+        sh "sudo chmod 777 runServer.sh"
+        sh "sh runServer.sh ${env.WORKSPACE}"
       }
     }
   }

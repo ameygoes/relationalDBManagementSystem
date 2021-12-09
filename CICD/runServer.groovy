@@ -1,16 +1,13 @@
 pipeline{
 
-  agent{
-    node {
-      label "master"
-    }
-  }
+  agent any
 
   stages{
 
     stage('clean'){
       steps{
         deleteDir()
+        checkout scm
       }
     }
 

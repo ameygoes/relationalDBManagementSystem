@@ -1,12 +1,13 @@
 WORKSPACE=$1
-sudo rm -rf /var/opt/rdbms/relationalDBManagementSystem
-sudo mkdir -p /var/opt/rdbms/relationalDBManagementSystem
+DESTINATION="/var/opt/rdbms/relationalDBManagementSystem/"
+sudo rm -rf $DESTINATION
+sudo mkdir -p $DESTINATION
 
-sudo cp $WORKSPACE/CICD/**/*.* /var/opt/rdbms/relationalDBManagementSystem/
+sudo cp -rvf $WORKSPACE/* $DESTINATION
 cd /usr/lib/python3.7/
 sudo chown -R $USER:$USER site-packages
 echo "/var/opt/rdbms/relationalDBManagementSystem" > addProjectPath.pth
 
-cd /var/opt/rdbms/relationalDBManagementSystem/rdbms/
+cd $DESTINATION/rdbms/
 echo "Starting Server..."
 python manage.py runserver

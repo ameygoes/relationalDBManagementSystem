@@ -39,4 +39,4 @@ def index(request):
         sendMailUsingSMTPToUser(userEmail)
 
         return(render(request, "home.html", {"text":"Your Email was sent to:{}".format(getListOfStrings(userEmail))}))
-    return(render(request, "index.html"))
+    return(render(request, "index2.html"))

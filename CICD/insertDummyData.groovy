@@ -13,9 +13,9 @@ pipeline{
 
     stage('Insert Dummy Data'){
       steps{
-        sh "cd ${env.WORKSPACE}/DummyDataGenerate/;pwd"
-        println("Inside Folder: ${env.WORKSPACE}/DummyDataGenerate/")
-        sh "ls -lrt;sudo chmod 777 ${env.WORKSPACE}/DummyDataGenerate/DummyDataGeneration.py"
+        sh "cd /var/lib/jenkins/workspace/runServer/backEnd/DummyDataGenerate;ls -lrt"
+        println("Inside Folder: /var/lib/jenkins/workspace/runServer/backEnd/DummyDataGenerate")
+        sh "ls -lrt;sudo chmod 777 /var/lib/jenkins/workspace/runServer/backEnd/DummyDataGenerate/DummyDataGeneration.py"
         sh "python3 DummyDataGeneration.py"
       }
     }

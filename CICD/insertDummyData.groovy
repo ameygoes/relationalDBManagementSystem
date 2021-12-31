@@ -4,13 +4,6 @@ pipeline{
 
   stages{
 
-    stage('clean'){
-      steps{
-        sh "cd /var/lib/jenkins/workspace/"
-        checkout scm
-      }
-    }
-
     stage('Insert Dummy Data'){
       steps{
         sh "cd /var/lib/jenkins/workspace/runServer/backEnd/DummyDataGenerate;ls -lrt"

@@ -15,11 +15,13 @@ BASE_DIR = getBaseDir()
 # CONNECTION PROPERTIES
 DB_USER_NAME = "rdmsUser"
 # password = "gAAAAABhK7M5eUiWIJw4mPdQUWeTo1AshWyTRI6gJ-THPlTuPYYhHMnY1Llrb0gKZ9ZN0bpAkNvXeWezPLnYR2B1fBUu5FwKZg==" --rootPaass
-PASSWORD = "gAAAAABhK576ntIFAmqgnXs6u06dtzHoJbPGzXNXTjRIRve-Z9aBF3Ztvtsz3fH6d2_QMtve15emipkg0Q_GcOAnYRMJiNxaUg=="
+# PASSWORD = "gAAAAABhK576ntIFAmqgnXs6u06dtzHoJbPGzXNXTjRIRve-Z9aBF3Ztvtsz3fH6d2_QMtve15emipkg0Q_GcOAnYRMJiNxaUg==" --local rdbms
+# PASSWORD = "gAAAAABhslbL_Fm-ltNokFKpU-aAzLlLf_p2CgnQGcuxvmfVuyB0jdyDnEjTx0e234TPvp089GUGMFRLekXeOkBbesT4fLOx4Q==" --ec2-root
+PASSWORD = "gAAAAABhsmFX_dMbextIwiSBgAFiLYbETzMswiYB0UrUZsGUEel0hFiTHEWqlkdnxcGkNtrqCly3c4c3qPrkrsq42uukiEqlWw=="
 HOST_NAME = "localhost"
 PORT_NAME = "3306"
-DB_NAME = "rdms"
-TABLE_NAME = "studentdetails"
+DB_NAME = "RDMS"
+TABLE_NAME = "studentDetails"
 
 # TABLE PROPERTIES
 COLOUMN_NAMES = "registrationId,rollNumber,firstName,surName,email,mobileNumber,aadhar,PAN,passport,nationality,isAadhar,isPAN,isPassport,\
@@ -45,7 +47,7 @@ SELECT_QUERY = "SELECT {} FROM {} WHERE registrationId in ({})"
 # ==============================================================
 # =========== DUMMY DATA PROPERTIES ==============
 # ==============================================================
-NUMBER_OF_DUMMY_DATA_TOBE_INSERTED = 100
+NUMBER_OF_DUMMY_DATA_TOBE_INSERTED = 10
 EMAIL_PREFIX_LENGTH = 9
 MOBILE_LENGTH = 10
 AADHAR_LENGTH = 14
@@ -70,10 +72,10 @@ emailNotificationAPIKey = "SG.ZoDztxzMQP-iBSyCA-2H6Q.Vq0bV47xBEhJjHZG1lCjuzNb3no
 #============== FILE OPERATIONS RELATED PRPERTIES ===============
 #================================================================
 FILE_NAME_OF_FILE_TOBE_PARSED = "InterestedStudents.csv"
-INPUT_DIR_PATH = "\\rdbms\\input\\"
+INPUT_DIR_PATH = "/rdbms/input/"
 INPUT_FOLDER_PATH = BASE_DIR + INPUT_DIR_PATH
 INTERESTED_STUDENTS_FILE_PATH = INPUT_FOLDER_PATH + FILE_NAME_OF_FILE_TOBE_PARSED
 
-PROJECT_PATH_FOR_CSV_FILE = "\\backEnd\\outputs\\"
+PROJECT_PATH_FOR_CSV_FILE = "/backEnd/outputs/"
 OUTPUT_CSV_FILE_NAME="StudentDetails.csv"
 PATH_TO_CSV_FILE = BASE_DIR + PROJECT_PATH_FOR_CSV_FILE + OUTPUT_CSV_FILE_NAME

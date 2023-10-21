@@ -59,14 +59,14 @@ ADDRESS_LENGTH = 10
 # ==============================================================
 # =========== ENCRYPTION AND DECRYTION PROPERTIES ==============
 # ==============================================================
-decreptionKey = "tN9oA_eCulJhWOF_gKEs3FdFUHzIfuj0JmDgjS-DWxo="
+decreptionKey = "Your Key"
 
 #================================================================
 #===================Send email===================================
 #================================================================
 from_email='no.reply.tnpproject@gmail.com'
 to_emails=['aadityab134@gmail.com','danimanas28@gmail.com','bamey2241997@gmail.com']
-emailNotificationAPIKey = "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"
+emailNotificationAPIKey = "Your Key"
 
 #================================================================
 #============== FILE OPERATIONS RELATED PRPERTIES ===============
